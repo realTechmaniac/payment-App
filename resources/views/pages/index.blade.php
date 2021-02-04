@@ -60,8 +60,13 @@
 					</div>
 
 					<div class="form-group">
+					    <label for="exampleInputPassword1" class="font-weight-bold">Amount (USD)</label>
+					    <input type="number" class="form-control" id="exampleInputPassword1" name="amount" placeholder="How much do you want to change.." value="{{old('amount')}}">
+					</div>
+					
+					<div class="form-group">
 					    <label for="exampleFormControlSelect1" class="font-weight-bold"> Payment Currency</label>
-					    <select class="form-control" id="exampleFormControlSelect1" name="currency">
+					    <select class="form-control" id="mycurrency" name="currency" onchange="myFunction()">
 					      <option value="NGN">NGN</option>
 					      <option value="KES">KES</option>
 					      <option value="GHS">GHS</option>
@@ -72,10 +77,10 @@
 					</div>
 
 					<div class="form-group">
-					    <label for="exampleInputPassword1" class="font-weight-bold">Amount to Pay</label>
-					    <input type="number" class="form-control" id="exampleInputPassword1" name="amount" placeholder="How much do you want to change.." value="{{old('amount')}}">
+					    <label for="exampleInputPassword1" class="font-weight-bold">Amount Due To Pay</label>
+					    <input type="number" class="form-control" id="exampleInputPassword1" name="amount" placeholder="How much do you want to change.." value="200000" readonly="">
 					</div>
-					
+
 					<button type="submit" class="btn btn-primary">Pay Now</button>
 				</form>
 
@@ -88,7 +93,7 @@
 
 
 
-
+<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

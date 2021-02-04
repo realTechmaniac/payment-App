@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Currency;
+
 class PagesController extends Controller
 {
     
@@ -22,8 +24,11 @@ class PagesController extends Controller
     		'currency' => 'required',
 
     		'amount'   => 'required|numeric'
+    		
     	]);
 
+
+    	$currency = new Currency();
 
   		$amount    = $request->amount;
 
