@@ -19,29 +19,65 @@ class PagesController extends Controller
 
     	$request->validate([
 
-    		'email'    => 'required|email',
+    		'firstName'   => 'required',
 
-    		'currency' => 'required',
+    		'lastName'    => 'required',
 
-    		'amount'   => 'required|numeric'
-    		
+    		'phoneNumber' => 'required|max:15',
+
+    		'email'       => 'required|email',
+
+    		'currency'    => 'required',
+
+    		'amount'      => 'required|numeric'
+
     	]);
 
 
-    	$currency = new Currency();
+    	$currency      = new Currency();
 
-  		$amount    = $request->amount;
+  		$amount        = $request->amount;
 
-  		$currency  = $request->currency;
+  		$currency      = $request->currency;
 
-  		$email     = $request->email;
+  		$email          = $request->email;
 
+  		$total_amount   = 0;
+
+  		
+
+  			if ($currency == 'USD') {
+  				
+  				$total_amount = intval($amount) * 0.96;
+
+  			} else if($currency == 'KES'){
+
+  				$total_amount = intval($amount) * 116 ;
+
+  			} elseif ($currency == 'GHS') {
+  				
+  				$total_amount = intval($amount) * 5.9 ;
+
+  			} elseif ($currency == 'EUR') {
+  				
+  				$total_amount = intval($amount) * 0.88 ;
+
+  			}elseif($currency == 'GBP'){
+
+  				$total_amount = intval($amount) * 0.78 ;
+
+  			}else{
+
+  				$total_amount = intval($amount) * 485 ;
+  			}
+
+  			
 
 
 		$collected_data  = [
 
 		   "tx_ref"          => time(),
-		   "amount"          => $amount,
+		   "amount"          => $total_amount,
 		   "currency"        => $currency,
 		   "redirect_url"    => "http://127.0.0.1:8000/",
 		   "payment_options" => "card",
@@ -92,17 +128,26 @@ class PagesController extends Controller
 
 		//Check if the the result status is successful -->
 
-
-		if ($result->status  == "success") {
+		if (!empty($result)) {
 			
-			$link  = $result->data->link;
+			if ($result->status  == "success") {
+			
+				$link  = $result->data->link;
 
-			return redirect()->to($link);
+				return redirect()->to($link);
+
+			}else{
+
+				echo "We cannot process your request!";
+			}
+
 
 		}else{
 
-			echo "We cannot process your request!";
+			echo"Check your Internet Connection Please seems you are not connected!";
 		}
+
+		
 
 
 

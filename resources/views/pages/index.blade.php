@@ -3,21 +3,35 @@
 <head>
 	<title>Currency Converter App</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com"> 
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+	<style type="text/css">
+		body{
+
+			font-family: 'Lato', sans-serif;
+		}
+	</style>
 </head>
-<body class="bg-light">
+<body class="bg-white">
+
+	<header>
+		<div class="offset-md-2 col-md-8 offset-md-2 ">
+			<ul class="nav">
+			 <li class="nav-item">
+			    <a class="nav-link active" href="#"><img src="{{asset('img/sprout-logo.png')}}" height="100px" width="250px" ></a>
+			 </li>
+			 
+		</ul>
+		</div>
+		
+	</header>
 
 	<section>
-		
-		<div class="text-center mt-5">
+	
+
+		<div class=" mb-5">
 			
-			<h2>Currency Converter App</h2>
-
-		</div>
-
-
-		<div class="mt-5">
-			
-			<div class="offset-md-4 col-md-4 offset-md-4 border border-dark p-5 bg-white">
+			<div class="offset-md-2 col-md-8 offset-md-2 border border-light p-5 bg-light">
 
 				<div class="error-div">
 					
@@ -53,20 +67,51 @@
 
 					@csrf
 
-					<div class="form-group mt-5">
-					    <label for="exampleInputEmail1" class="font-weight-bold">Email address</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{old('email')}}">
-					    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					<div class="row">
+						
+						<div class="col">
+							<div class="form-group mt-5">
+							    <label for="exampleInputEmail1" class="font-weight-bold">First Name</label>
+							    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="firstName" value="{{old('firstName')}}">
+							
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="form-group mt-5">
+							    <label for="exampleInputEmail1" class="font-weight-bold">Last Name</label>
+							    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="lastName" value="{{old('lastName')}}">
+							</div>
+						</div>
+
 					</div>
 
-					<div class="form-group">
-					    <label for="exampleInputPassword1" class="font-weight-bold">Amount (USD)</label>
-					    <input type="number" class="form-control" id="exampleInputPassword1" name="amount" placeholder="How much do you want to change.." value="{{old('amount')}}">
+
+					<div class="row">
+						
+						<div class="col">
+							<div class="form-group mt-5">
+							    <label for="exampleInputEmail1" class="font-weight-bold">Email address</label>
+							    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{old('email')}}">
+							    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="form-group mt-5">
+							    <label for="exampleInputEmail1" class="font-weight-bold">Phone Number</label>
+							    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phoneNumber" value="{{old('phoneNumber')}}">
+							</div>
+						</div>
+
 					</div>
+
 					
+
+
 					<div class="form-group">
 					    <label for="exampleFormControlSelect1" class="font-weight-bold"> Payment Currency</label>
-					    <select class="form-control" id="mycurrency" name="currency" onchange="myFunction()">
+					    <select class="form-control" id="myselect" name="currency" >
 					      <option value="NGN">NGN</option>
 					      <option value="KES">KES</option>
 					      <option value="GHS">GHS</option>
@@ -77,8 +122,14 @@
 					</div>
 
 					<div class="form-group">
-					    <label for="exampleInputPassword1" class="font-weight-bold">Amount Due To Pay</label>
-					    <input type="number" class="form-control" id="exampleInputPassword1" name="amount" placeholder="How much do you want to change.." value="200000" readonly="">
+					    <label for="exampleInputPassword1" class="font-weight-bold">Amount (USD)</label>
+					    <input type="number" class="form-control" id="amount_to_change" name="amount" placeholder="How much do you want to change.." value="{{old('amount')}}">
+					</div>
+					
+					
+					<div class="form-group">
+					    <label for="exampleInputPassword1" class="font-weight-bold">Amount Due To Pay</label> <h5><strong<span id="total_amount_to_pay"></span></strong>
+                           </h5>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Pay Now</button>
@@ -90,12 +141,14 @@
 	</section>
 
 
+	
 
-
-
-<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-</body>
+
+
+</script>
+</body> 
 </html>
