@@ -12,26 +12,16 @@
 		}
 	</style>
 </head>
-<body class="bg-white">
+<body class="bg-light">
 
-	<header>
-		<div class="offset-md-2 col-md-8 offset-md-2 ">
-			<ul class="nav">
-			 <li class="nav-item">
-			    <a class="nav-link active" href="#"><img src="{{asset('img/sprout-logo.png')}}" height="100px" width="250px" ></a>
-			 </li>
-			 
-		</ul>
-		</div>
-		
-	</header>
+	
 
 	<section>
 	
 
 		<div class=" mb-5">
 			
-			<div class="offset-md-2 col-md-8 offset-md-2 border border-light p-5 bg-light">
+			<div class="offset-md-2 col-md-8 offset-md-2 border border-light p-5 bg-white">
 
 				<div class="error-div">
 					
@@ -61,8 +51,21 @@
                         </div>
                     @endif
 
+
+                    <header>
+
+							<ul class="nav">
+								 <li class="nav-item">
+								    <img src="{{asset('img/sprout-logo.png')}}" height="100px" width="250px" >
+								 </li>
+								 
+							</ul>
+				
+					</header>
 				</div>
 				
+				
+
 				<form method="POST" action="{{url('/save')}}">
 
 					@csrf
@@ -90,7 +93,7 @@
 					<div class="row">
 						
 						<div class="col">
-							<div class="form-group mt-5">
+							<div class="form-group mt-3">
 							    <label for="exampleInputEmail1" class="font-weight-bold">Email address</label>
 							    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{old('email')}}">
 							    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -98,7 +101,7 @@
 						</div>
 
 						<div class="col">
-							<div class="form-group mt-5">
+							<div class="form-group mt-3">
 							    <label for="exampleInputEmail1" class="font-weight-bold">Phone Number</label>
 							    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phoneNumber" value="{{old('phoneNumber')}}">
 							</div>
@@ -107,6 +110,10 @@
 					</div>
 
 					
+					<div class="form-group">
+					    <label for="exampleInputPassword1" class="font-weight-bold">Amount (USD)</label>
+					    <input type="number" class="form-control" id="amount_to_change" name="amount" placeholder="How much do you want to change.." value="{{old('amount')}}">
+					</div>
 
 
 					<div class="form-group">
@@ -121,13 +128,10 @@
 					    </select>
 					</div>
 
-					<div class="form-group">
-					    <label for="exampleInputPassword1" class="font-weight-bold">Amount (USD)</label>
-					    <input type="number" class="form-control" id="amount_to_change" name="amount" placeholder="How much do you want to change.." value="{{old('amount')}}">
-					</div>
 					
 					
-					<div class="form-group">
+					
+					<div class="form-group mt-4">
 					    <label for="exampleInputPassword1" class="font-weight-bold">Amount Due To Pay</label> <h5><strong<span id="total_amount_to_pay"></span></strong>
                            </h5>
 					</div>
@@ -143,10 +147,10 @@
 
 	
 
-<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-3.3.1.slim.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
-<script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset('js/popper.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 
 
 </script>
