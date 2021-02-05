@@ -11,9 +11,13 @@
 |
 */
 
+//To prevent insecure links -->
+
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
 
 Route::get('/', 'PagesController@index');
 
 Route::post('/save', 'PagesController@store');
 
-Route::get('/process', 'PagesController@process');

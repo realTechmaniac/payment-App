@@ -56,7 +56,7 @@
 
 							<ul class="nav">
 								 <li class="nav-item">
-								    <img src="{{asset('img/sprout-logo.png')}}" height="100px" width="250px" >
+								    <img src="{{asset('img/sprout-logo-new.png')}}" >
 								 </li>
 								 
 							</ul>
@@ -112,7 +112,7 @@
 					
 					<div class="form-group">
 					    <label for="exampleInputPassword1" class="font-weight-bold">Amount (USD)</label>
-					    <input type="number" class="form-control" id="amount_to_change" name="amount" placeholder="How much do you want to change.." value="{{old('amount')}}">
+					    <input type="number" class="form-control" id="amount_to_change" name="amount" placeholder="Amount to Invest in USD" value="{{old('amount')}}">
 					</div>
 
 
@@ -129,7 +129,7 @@
 					</div>
 
 					
-					
+				   <input type="number" name="amount-due" id="hide-value" hidden="" value="" >
 					
 					<div class="form-group mt-4">
 					    <label for="exampleInputPassword1" class="font-weight-bold">Amount Due To Pay</label> <h5><strong<span id="total_amount_to_pay"></span></strong>

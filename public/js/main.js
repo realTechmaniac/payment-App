@@ -52,4 +52,10 @@
         
         $('#total_amount_to_pay').html(_html);
 
+
+
+
     });
+
+
+   
