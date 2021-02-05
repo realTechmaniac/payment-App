@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Currency;
+use App\Mail\TransactionCreated;
+
+use Mail;
+
+use App\Transaction;
 
 class PagesController extends Controller
 {
@@ -34,7 +38,7 @@ class PagesController extends Controller
     	]);
 
 
-    	$currency      = new Currency();
+   
 
   		$amount        = $request->amount;
 
@@ -52,11 +56,11 @@ class PagesController extends Controller
 
   			} else if($currency == 'KES'){
 
-  				$total_amount = intval($amount) * 116 ;
+  				$total_amount = intval($amount) * 115;
 
   			} elseif ($currency == 'GHS') {
   				
-  				$total_amount = intval($amount) * 5.9 ;
+  				$total_amount = intval($amount) * 5.95;
 
   			} elseif ($currency == 'EUR') {
   				
@@ -71,7 +75,34 @@ class PagesController extends Controller
   				$total_amount = intval($amount) * 485 ;
   			}
 
-  			
+  		
+  		//Save the Data into a Database::-->
+
+	  		$transaction                    = new Transaction();
+
+	  		$transaction->firstname         = $request->firstName;
+
+	  		$transaction->lastname          = $request->lastName;
+
+	  		$transaction->email             = $request->email;
+
+	  		$transaction->phonenumber       = $request->phoneNumber;
+
+	  		$transaction->amount_in_usd     = $request->amount;
+
+	  		$transaction->payment_currency  = $request->currency;
+
+	  		$transaction->amount_due_to_pay = $total_amount;
+
+	  		$transaction->save();
+
+
+			//Send Mail once transaction is created::-->
+
+			// Mail::to('ayomide.adebayo19@gmai.com')->send(
+
+			// 	new TransactionCreated($transaction)
+			// );
 
 
 		$collected_data  = [

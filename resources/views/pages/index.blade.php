@@ -127,16 +127,14 @@
 					      <option value="USD">USD</option>
 					    </select>
 					</div>
-
-					
-				   <input type="number" name="amount-due" id="hide-value" hidden="" value="" >
-					
+ 
 					<div class="form-group mt-4">
 					    <label for="exampleInputPassword1" class="font-weight-bold">Amount Due To Pay</label> <h5><strong<span id="total_amount_to_pay"></span></strong>
-                           </h5>
+                        </h5>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Pay Now</button>
+					
 				</form>
 
 			</div>
