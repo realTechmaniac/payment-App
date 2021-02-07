@@ -112,7 +112,7 @@
 					
 					<div class="form-group">
 					    <label for="exampleInputPassword1" class="font-weight-bold">Amount (USD)</label>
-					    <input type="number" class="form-control" id="amount_to_change" name="amount" placeholder="Amount to Invest in USD" value="{{old('amount')}}">
+					    <input type="number" class="form-control" id="amount_to_change" name="amount" placeholder="Amount to Safevest in USD" value="{{old('amount')}}">
 					</div>
 
 
