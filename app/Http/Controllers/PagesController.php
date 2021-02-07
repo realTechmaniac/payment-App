@@ -52,27 +52,27 @@ class PagesController extends Controller
 
   			if ($currency == 'USD') {
   				
-  				$total_amount = intval($amount) * 0.96;
+  				$total_amount = intval($amount) * 1;
 
   			} else if($currency == 'KES'){
 
-  				$total_amount = intval($amount) * 115;
+  				$total_amount = intval($amount) * 114;
 
   			} elseif ($currency == 'GHS') {
   				
-  				$total_amount = intval($amount) * 5.95;
+  				$total_amount = intval($amount) * 6.2;
 
   			} elseif ($currency == 'EUR') {
   				
-  				$total_amount = intval($amount) * 0.88 ;
+  				$total_amount = intval($amount) * 0.85 ;
 
   			}elseif($currency == 'GBP'){
 
-  				$total_amount = intval($amount) * 0.78 ;
+  				$total_amount = intval($amount) * 0.74;
 
   			}else{
 
-  				$total_amount = intval($amount) * 485 ;
+  				$total_amount = intval($amount) * 482;
   			}
 
   		
