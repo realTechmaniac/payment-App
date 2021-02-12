@@ -41,7 +41,7 @@
 
         } else {
 
-            total_amount  = parseInt(amount) * 482;
+            total_amount  = parseInt(amount) * 480;
             console.log(total_amount);
         }
 
@@ -107,7 +107,7 @@
 
         } else {
 
-            total_amount  = parseInt(amount) * 485;
+            total_amount  = parseInt(amount) * 480;
             console.log(total_amount);
         }
 

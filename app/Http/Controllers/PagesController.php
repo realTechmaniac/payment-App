@@ -72,7 +72,7 @@ class PagesController extends Controller
 
   			}else{
 
-  				$total_amount = intval($amount) * 482;
+  				$total_amount = intval($amount) * 480;
   			}
 
   		
