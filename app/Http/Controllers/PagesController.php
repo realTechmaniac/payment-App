@@ -78,23 +78,23 @@ class PagesController extends Controller
   		
   		//Save the Data into a Database::-->
 
-	  		$transaction                    = new Transaction();
+	  		// $transaction                    = new Transaction();
 
-	  		$transaction->firstname         = $request->firstName;
+	  		// $transaction->firstname         = $request->firstName;
 
-	  		$transaction->lastname          = $request->lastName;
+	  		// $transaction->lastname          = $request->lastName;
 
-	  		$transaction->email             = $request->email;
+	  		// $transaction->email             = $request->email;
 
-	  		$transaction->phonenumber       = $request->phoneNumber;
+	  		// $transaction->phonenumber       = $request->phoneNumber;
 
-	  		$transaction->amount_in_usd     = $request->amount;
+	  		// $transaction->amount_in_usd     = $request->amount;
 
-	  		$transaction->payment_currency  = $request->currency;
+	  		// $transaction->payment_currency  = $request->currency;
 
-	  		$transaction->amount_due_to_pay = $total_amount;
+	  		// $transaction->amount_due_to_pay = $total_amount;
 
-	  		$transaction->save();
+	  		// $transaction->save();
 
 
 			//Send Mail once transaction is created::-->
@@ -142,7 +142,7 @@ class PagesController extends Controller
   		CURLOPT_CUSTOMREQUEST  => "POST",
   		CURLOPT_POSTFIELDS     => json_encode($collected_data),
 	  		CURLOPT_HTTPHEADER => array(
-	  		"Authorization:FLWSECK-0bb5bcb9f43c87d58aa78ec3f420c00e-X  ",
+	  		"Authorization: FLWSECK-0bb5bcb9f43c87d58aa78ec3f420c00e-X",
 	    	"content-type: application/json",
 	    	"cache-control: no-cache"	    	
 	  	),
